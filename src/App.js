@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import axios from 'axios';
+import axios from "axios";
+import scriptInsertAxios from './insertAxios'
+import Header from './Header'
+scriptInsertAxios();
 
-let axCall = axios.get("https://api.nasa.gov/planetary/apod").then(response => {
-  console.log(response);
-})
-.catch(e=>console.log(e));
+let holdResponse = [];
+const axCall = axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2012-03-14")
+  .then((response) => {
+    console.log(response);
+    holdResponse.push(response.data);
+  })
+  .catch((e) => console.log(e));
+
+
 
 function App() {
+  if (!holdResponse.photoOfTheDay) return <h3>Loading...</h3>
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+     <Header className='header' />
+     <MainSection className='main-body' data={holdResponse} />
     </div>
   );
 }
