@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
      <Header className='header' />
-     <MainSection className='main-body' data={holdResponse} />
+     <MainSection className='main-body' props={holdResponse} />
     </div>
   );
 }
