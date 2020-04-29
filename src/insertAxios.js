@@ -1,4 +1,5 @@
 export default function insertAxios() {
+
     const axScript = document.createElement("script");
     axScript.src = "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js";
     axScript.setAttribute("defer", true);
