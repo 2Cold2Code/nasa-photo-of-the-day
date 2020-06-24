@@ -6,10 +6,11 @@ import Header from "./Header";
 import MainSection from "./MainSection";
 
 function App() {
+  const dates = prompt('Enter a year, month and day in the form: yyyy-mm-dd')
   useEffect(() => {
     axios
       .get(
-        "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2020-01-03"
+        `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dates}`
       )
       .then((response) => {
         console.log(response);
