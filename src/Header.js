@@ -7,7 +7,7 @@ export default function Header() {
     "About",
     `Tell us about${"\n"}how you feel${"\n"}about our nav${"\n"} not working!`,
   ];
-  const [text, setText] = useState(textArr);
+  const [text] = useState(textArr);
   return (
     <div>
       <Nav className="navigation" text={text} />
